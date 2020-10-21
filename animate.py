@@ -1,6 +1,5 @@
-from .cube import Cube
+from shape.cube import Cube
 from bibliopixel.layout import *
-from scoreboard.animations.ScoreBoardUpdateAnimation import ScoreBoardUpdateAnimation # import the animation
 from bibliopixel.drivers.PiWS281X import *
 import sys
 
