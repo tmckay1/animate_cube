@@ -1,11 +1,11 @@
 from bibliopixel.layout import *
-from bibliopixel.animation import BaseStripAnim
+from bibliopixel.animation import Animation
 
-class CubeAnimation(BaseStripAnim):
+class CubeAnimation(Animation):
 
     def __init__(self, led):
         #The base class MUST be initialized by calling super like this
-        super(BaseStripAnim, self).__init__(led)
+        super(Animation, self).__init__(led)
 
     # override to write out word for each frame in the animation
     def step(self, amt = 1):
