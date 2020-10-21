@@ -9,13 +9,14 @@ import math, threading, time
 
 
 def make_cube_coord_map(dx, dy, dz, xy_serpentine=True, offset=0,
-                        xy_rotation=0, z_rotation=0, z_flip=False):
+                        xy_rotation=0, z_rotation=0,
+                        y_flip=False, z_flip=False):
     result = []
     plane_offset = offset
     for z in range(dz):
         plane = make_matrix_coord_map(dx, dy, serpentine=xy_serpentine,
-                                      offset=plane_offset, rotation=xy_rotation,
-                                      y_flip=(z % 2 == 1))
+                                      offset=plane_offset, rotation=(180 if (z % 2 == 1) else 0),
+                                      y_flip=y_flip)
         plane_offset += (dx * dy)
         result.append(plane)
 
