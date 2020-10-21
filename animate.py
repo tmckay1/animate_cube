@@ -1,4 +1,5 @@
 from shape.cube import Cube
+from animation.cube_animation import CubeAnimation
 from bibliopixel.layout import *
 from bibliopixel.drivers.PiWS281X import *
 import sys
@@ -11,3 +12,5 @@ y          = 8    # number of leds in the timer section
 z          = 8     # number of leds in for a single number
 driver     = PiWS281X(8*8*8)
 led        = Cube(driver, 8, 8, 8)
+anim       = CubeAnimation(led)
+anim.run()
