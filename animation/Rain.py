@@ -17,32 +17,33 @@ class RainBow(Cube):
     for i in range(self._tail):
       if z - i >= 0 and z - i < self.z:
         level = 255 - ((255 // self._tail) * i)
-        self.layout.set(x, y, z - i, color_scale(color, level))
+        self.layout.set(x, y, z - i, (0,255,0))
 
   def step(self, amt=1):
-    self.layout.all_off()
+    if self._step % 5 == 0:
+        self.layout.all_off()
 
-    for i in range(self._growthRate):
-      x = random.randint(0, self.x - 1)
-      y = random.randint(0, self.y - 1)
-      self._drops[x][y].append(0)
+        for i in range(self._growthRate):
+          x = random.randint(0, self.x - 1)
+          y = random.randint(0, self.y - 1)
+          self._drops[x][y].append(0)
 
-    for x in range(self.x):
-      for y in range(self.y):
-        col = self._drops[x][y]
-        if len(col) > 0:
-          removals = []
-          for z in range(len(col)):
-            drop = col[z]
-            if drop < self.y:
-              self._drawDrop(x, y, drop, self.palette(
-                drop * (255 // self.z)))
-            if drop - (self._tail - 1) < self.z:
-              drop = drop + 1
-              self._drops[x][y][z] = drop
-            else:
-              removals.append(drop)
-          for r in removals:
-            self._drops[x][y].remove(r)
+        for x in range(self.x):
+          for y in range(self.y):
+            col = self._drops[x][y]
+            if len(col) > 0:
+              removals = []
+              for z in range(len(col)):
+                drop = col[z]
+                if drop < self.y:
+                  self._drawDrop(x, y, drop, self.palette(
+                    drop * (255 // self.z)))
+                if drop - (self._tail - 1) < self.z:
+                  drop = drop + 1
+                  self._drops[x][y][z] = drop
+                else:
+                  removals.append(drop)
+              for r in removals:
+                self._drops[x][y].remove(r)
 
-    self._step = 0
+    self._step = self._step + 1
