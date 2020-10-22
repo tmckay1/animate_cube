@@ -29,10 +29,10 @@ class CubeRain(Cube):
 
   def step(self, amt=1):
     if self._step % self._speed == 0:
+        self.layout.all_off()
+
         if self._clouds:
             self._drawClouds()
-
-        self.layout.all_off()
 
         for i in range(self._growthRate):
           x = random.randint(0, self.x - 1)
