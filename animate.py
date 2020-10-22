@@ -14,5 +14,6 @@ layout     = SnakedCube(driver, 8, 8, 8)
 
 tail       = 4 # tail of rain animation
 growthRate = 1 # how many rain drops
-anim       = Rain(layout, tail=tail, growthRate=growthRate)
+speed      = 2 # higher the number, slower it is
+anim       = Rain(layout, tail=tail, growthRate=growthRate, speed=speed)
 anim.run()
