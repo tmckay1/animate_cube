@@ -25,7 +25,9 @@ def make_cube_coord_map(dx, dy, dz, xy_serpentine=True, offset=0,
     return result
 
 class SnakedCube(Cube):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+    def __init__(self, drivers, x, y, z, coord_map=None,
+                 threadedUpdate=False, brightness=255, **kwargs):
+        super().__init__(drivers, x, y, z, coord_map=None,
+                 threadedUpdate=False, brightness=255, **kwargs)
         self.coord_map = make_cube_coord_map(x, y, z)
         self.set_pixel_positions(make_cube_coord_map_positions(self.coord_map))
