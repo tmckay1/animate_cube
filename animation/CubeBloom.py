@@ -33,7 +33,7 @@ class CubeBloom(Cube):
     def pre_run(self):
         self._step = 0
 
-    def step(self, amt=8):
+    def step(self, amt=32):
         if self._dir:
             s = 255 - self._step
         else:
