@@ -1,7 +1,7 @@
 from bibliopixel.util import log
 from bibliopixel.colors import conversions
 from bibliopixel.layout import font
-from bibliopixel.layout.layout import Layout
+from bibliopixel.layout.cube import Cube
 from bibliopixel.layout.geometry.rotation import rotate_and_flip
 from bibliopixel.layout.geometry.matrix import make_matrix_coord_map
 import math, threading, time
@@ -43,7 +43,7 @@ def make_cube_coord_map_positions(coord_map):
                 result[coord_map[z][y][x]] = [x, y, z]
     return result
 
-class Cube(Layout):
+class SnakedCube(Cube):
     CLONE_ATTRS = Layout.CLONE_ATTRS + ('x', 'y', 'z')
 
     def __init__(self, drivers, x, y, z, coord_map=None,

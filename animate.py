@@ -1,4 +1,4 @@
-from shape.cube import Cube
+from shape.snaked_cube import SnakedCube
 from animation.Rain import RainBow
 from bibliopixel.drivers.PiWS281X import PiWS281X
 import sys
@@ -10,6 +10,6 @@ x          = 8    # number of leds in the team name
 y          = 8    # number of leds in the timer section
 z          = 8     # number of leds in for a single number
 driver     = PiWS281X(8*8*8)
-layout     = Cube(driver, 8, 8, 8)
-anim       = RainBow(led)
+layout     = SnakedCube(driver, 8, 8, 8)
+anim       = RainBow(layout)
 anim.run()
