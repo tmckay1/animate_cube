@@ -33,11 +33,11 @@ class RainBow(Cube):
         if len(col) > 0:
           removals = []
           for z in range(len(col)):
-            drop = col[y]
+            drop = col[z]
             if drop < self.y:
               self._drawDrop(x, y, drop, self.palette(
-                drop * (255 // self.y)))
-            if drop - (self._tail - 1) < self.y:
+                drop * (255 // self.z)))
+            if drop - (self._tail - 1) < self.z:
               drop = drop + 1
               self._drops[x][y][z] = drop
             else:
