@@ -14,7 +14,7 @@ class Rain(Cube):
   def pre_run(self):
     self._step = 0
 
-  def _drawDrop(self, x, y, z, color):
+  def _drawDrop(self, x, y, z):
     for i in range(self._tail):
       if z - i >= 0 and z - i < self.z:
         self.layout.set(x, y, z - i, (0,255,0))
@@ -36,10 +36,9 @@ class Rain(Cube):
               for z in range(len(col)):
                 drop = col[z]
                 if drop < self.z:
-                  self._drawDrop(x, y, drop, self.palette(
-                    drop * (255 // self.z)))
-                if drop - (self._tail - 1) < self.z:
-                  drop = drop + 1
+                  self._drawDrop(x, y, drop)
+                if drop + (self._tail - 1) < self.z:
+                  drop = drop - 1
                   self._drops[x][y][z] = drop
                 else:
                   removals.append(drop)
