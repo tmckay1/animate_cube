@@ -2,6 +2,7 @@ from shape.snaked_cube import SnakedCube
 from animation.CubeRain import CubeRain
 from animation.CubeBloom import CubeBloom
 from animation.Firework import Firework
+from animation.LaserUp import Laser
 from animation.LaserUp import LaserUp
 from animation.WaveSpiral import WaveSpiral
 from animation.CubeGameOfLife import CubeGameOfLife
@@ -38,9 +39,14 @@ layout     = SnakedCube(driver, 8, 8, 8)
 # anim.run()
 
 # laser
-speed = 2
-anim  = LaserUp(layout, speed=speed)
+speed = 5 # higher the number, slower it is
+anim  = Laser(layout, speed=speed)
 anim.run()
+
+# laser up
+# speed = 2 # higher the number, slower it is
+# anim  = LaserUp(layout, speed=speed)
+# anim.run()
 
 # game of lifeW
 # anim = CubeGameOfLife(layout)
