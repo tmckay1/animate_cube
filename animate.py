@@ -1,5 +1,5 @@
 from shape.snaked_cube import SnakedCube
-from animation.Rain import Rain
+from animation.Rain import CubeRain
 from bibliopixel.drivers.PiWS281X import PiWS281X
 import sys
 
@@ -15,5 +15,5 @@ layout     = SnakedCube(driver, 8, 8, 8)
 tail       = 4 # tail of rain animation
 growthRate = 1 # how many rain drops
 speed      = 2 # higher the number, slower it is
-anim       = Rain(layout, tail=tail, growthRate=growthRate, speed=speed)
+anim       = CubeRain(layout, tail=tail, growthRate=growthRate, speed=speed)
 anim.run()

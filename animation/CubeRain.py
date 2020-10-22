@@ -2,7 +2,7 @@ import random
 from bibliopixel.colors.arithmetic import color_scale
 from bibliopixel.animation.cube import Cube
 
-class Rain(Cube):
+class CubeRain(Cube):
 
   def __init__(self, layout, tail=4, growthRate=12, speed = 1, **kwds):
     super().__init__(layout, **kwds)
