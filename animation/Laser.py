@@ -9,6 +9,7 @@ class Laser(Cube):
         self._speed = speed
 
     def step(self, amt=1):
+        self.layout.all_off()
         for x in range(self.x):
             for y in range(self.y):
                 self.layout.set(x, y, self._step % self.z, (255,0,0))
