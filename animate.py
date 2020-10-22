@@ -1,5 +1,5 @@
 from shape.snaked_cube import SnakedCube
-from animation.Rain import CubeRain
+from animation.CubeRain import CubeRain
 from bibliopixel.drivers.PiWS281X import PiWS281X
 import sys
 
