@@ -2,7 +2,7 @@ from shape.snaked_cube import SnakedCube
 from animation.CubeRain import CubeRain
 from animation.CubeBloom import CubeBloom
 from animation.Firework import Firework
-from animation.LaserUp import Laser
+from animation.Laser import Laser
 from animation.LaserUp import LaserUp
 from animation.WaveSpiral import WaveSpiral
 from animation.CubeGameOfLife import CubeGameOfLife
