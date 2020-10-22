@@ -22,7 +22,7 @@ class CubeRain(Cube):
         self.layout.set(x, y, z - i, self._color)
 
   def _drawClouds(self):
-    white_color = (1,1,1)
+    white_color = (255,255,255)
     for x in range(self.x):
       for y in range(self.y):
         self.layout.set(x, y, self.z - 1, white_color)
