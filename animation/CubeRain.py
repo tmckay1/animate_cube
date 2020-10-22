@@ -4,10 +4,11 @@ from bibliopixel.animation.cube import Cube
 
 class CubeRain(Cube):
 
-  def __init__(self, layout, tail=4, growthRate=12, speed = 1, **kwds):
+  def __init__(self, layout, tail=4, growthRate=12, speed = 1, color = (0,0,0), **kwds):
     super().__init__(layout, **kwds)
-    self._tail = tail
+    self._tail  = tail
     self._speed = speed
+    self._color = color
     self._drops = [[[] for y in range(self.y)] for x in range(self.x)]
     self._growthRate = growthRate
 

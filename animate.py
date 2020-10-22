@@ -12,8 +12,18 @@ z          = 8     # number of leds in for a single number
 driver     = PiWS281X(8*8*8)
 layout     = SnakedCube(driver, 8, 8, 8)
 
-tail       = 4 # tail of rain animation
-growthRate = 1 # how many rain drops
+# matrix movie animation
+# tail       = 4 # tail of rain animation
+# growthRate = 1 # how many rain drops
+# speed      = 2 # higher the number, slower it is
+# color      = (0,255,0)
+# anim       = CubeRain(layout, tail=tail, growthRate=growthRate, speed=speed, color=color)
+# anim.run()
+
+# rain drops
+tail       = 1 # tail of rain animation
+growthRate = 2 # how many rain drops
 speed      = 2 # higher the number, slower it is
-anim       = CubeRain(layout, tail=tail, growthRate=growthRate, speed=speed)
+color      = (0,255,255)
+anim       = CubeRain(layout, tail=tail, growthRate=growthRate, speed=speed, color=color)
 anim.run()
