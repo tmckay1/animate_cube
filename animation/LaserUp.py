@@ -1,7 +1,7 @@
   
 from bibliopixel.animation.cube import Cube
 
-class Laser(Cube):
+class LaserUp(Cube):
 
     def __init__(self, layout, color=(255,255,255), speed=1, **kwds):
         super().__init__(layout, **kwds)
