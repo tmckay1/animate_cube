@@ -14,10 +14,8 @@ def make_cube_coord_map(dx, dy, dz, xy_serpentine=True, offset=0,
     plane_offset = offset
     for z in range(dz):
         odd = z % 2 == 1
-        print("z: " + str(z))
-        print("odd: " + str(odd))
         plane = make_matrix_coord_map(dx, dy, serpentine=xy_serpentine,
-                                      offset=plane_offset, rotation=(180 if odd else 0),
+                                      offset=plane_offset, rotation=0,
                                       y_flip=(True if odd else False))
         plane_offset += (dx * dy)
         result.append(plane)

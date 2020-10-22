@@ -9,4 +9,4 @@ class CubeAnimation(Animation):
 
     # override to write out word for each frame in the animation
     def step(self, amt = 1):
-      self.layout.set(1,1,1,(255,0,0))
+      self.layout.set(2,1,1,(255,0,0))

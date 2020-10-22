@@ -1,6 +1,5 @@
 from shape.cube import Cube
 from animation.cube_animation import CubeAnimation
-from bibliopixel.layout import *
 from bibliopixel.drivers.PiWS281X import *
 import sys
 
