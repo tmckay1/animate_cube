@@ -38,7 +38,8 @@ layout     = SnakedCube(driver, 8, 8, 8)
 # anim.run()
 
 # laser
-anim = Laser(layout)
+speed = 2
+anim  = Laser(layout, speed=speed)
 anim.run()
 
 # game of lifeW
