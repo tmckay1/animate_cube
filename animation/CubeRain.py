@@ -18,7 +18,7 @@ class CubeRain(Cube):
   def _drawDrop(self, x, y, z):
     for i in range(self._tail):
       if z - i >= 0 and z - i < self.z:
-        self.layout.set(x, y, z - i, (0,255,0))
+        self.layout.set(x, y, z - i, self._color)
 
   def step(self, amt=1):
     if self._step % self._speed == 0:
