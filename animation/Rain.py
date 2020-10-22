@@ -4,7 +4,7 @@ from bibliopixel.animation.cube import Cube
 
 class RainBow(Cube):
 
-  def __init__(self, layout, tail=4, growthRate=12, **kwds):
+  def __init__(self, layout, tail=4, growthRate=6, **kwds):
     super().__init__(layout, **kwds)
     self._tail = tail
     self._drops = [[[] for y in range(self.y)] for x in range(self.x)]
@@ -20,7 +20,7 @@ class RainBow(Cube):
         self.layout.set(x, y, z - i, (0,255,0))
 
   def step(self, amt=1):
-    if self._step % 5 == 0:
+    if self._step % 3 == 0:
         self.layout.all_off()
 
         for i in range(self._growthRate):
