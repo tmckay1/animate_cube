@@ -1,6 +1,7 @@
 from shape.snaked_cube import SnakedCube
 from animation.CubeRain import CubeRain
 from animation.CubeBloom import CubeBloom
+from animation.Firework import Firework
 from animation.WaveSpiral import WaveSpiral
 from animation.CubeGameOfLife import CubeGameOfLife
 from bibliopixel.drivers.PiWS281X import PiWS281X
@@ -24,11 +25,15 @@ layout     = SnakedCube(driver, 8, 8, 8)
 # anim.run()
 
 # rain drops
-tail       = 1 # tail of rain animation
-growthRate = 1 # how many rain drops
-speed      = 2 # higher the number, slower it is
-color      = (0,255,255)
-anim       = CubeRain(layout, tail=tail, growthRate=growthRate, speed=speed, color=color, clouds=True)
+# tail       = 1 # tail of rain animation
+# growthRate = 1 # how many rain drops
+# speed      = 2 # higher the number, slower it is
+# color      = (0,255,255)
+# anim       = CubeRain(layout, tail=tail, growthRate=growthRate, speed=speed, color=color, clouds=True)
+# anim.run()
+
+# fireworks
+anim = Firework(layout)
 anim.run()
 
 # game of lifeW
