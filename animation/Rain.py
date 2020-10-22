@@ -38,8 +38,8 @@ class Rain(Cube):
                 if drop < self.z:
                   self._drawDrop(x, y, drop, self.palette(
                     drop * (255 // self.z)))
-                if drop + (self._tail - 1) < self.z:
-                  drop = drop - 1
+                if drop - (self._tail - 1) < self.z:
+                  drop = drop + 1
                   self._drops[x][y][z] = drop
                 else:
                   removals.append(drop)
