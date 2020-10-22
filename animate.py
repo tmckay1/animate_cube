@@ -1,7 +1,7 @@
 from shape.snaked_cube import SnakedCube
 from animation.CubeRain import CubeRain
 from animation.CubeBloom import CubeBloom
-from animation.Simplex import Simplex
+from animation.WaveSpiral import WaveSpiral
 from animation.CubeGameOfLife import CubeGameOfLife
 from bibliopixel.drivers.PiWS281X import PiWS281X
 import sys
@@ -39,6 +39,6 @@ layout     = SnakedCube(driver, 8, 8, 8)
 # anim = CubeBloom(layout)
 # anim.run()
 
-# simplex
-# anim = Simplex(layout)
-# anim.run()
+# wave spiral
+anim = WaveSpiral(layout)
+anim.run()
