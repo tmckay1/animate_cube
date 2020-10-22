@@ -24,12 +24,12 @@ layout     = SnakedCube(driver, 8, 8, 8)
 # anim.run()
 
 # rain drops
-# tail       = 1 # tail of rain animation
-# growthRate = 1 # how many rain drops
-# speed      = 1 # higher the number, slower it is
-# color      = (0,255,255)
-# anim       = CubeRain(layout, tail=tail, growthRate=growthRate, speed=speed, color=color)
-# anim.run()
+tail       = 1 # tail of rain animation
+growthRate = 1 # how many rain drops
+speed      = 1 # higher the number, slower it is
+color      = (0,255,255)
+anim       = CubeRain(layout, tail=tail, growthRate=growthRate, speed=speed, color=color, clouds=True)
+anim.run()
 
 # game of lifeW
 # anim = CubeGameOfLife(layout)
@@ -40,5 +40,5 @@ layout     = SnakedCube(driver, 8, 8, 8)
 # anim.run()
 
 # wave spiral
-anim = WaveSpiral(layout)
-anim.run()
+# anim = WaveSpiral(layout)
+# anim.run()
