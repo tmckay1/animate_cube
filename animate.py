@@ -1,6 +1,6 @@
 from shape.cube import Cube
 from animation.cube_animation import CubeAnimation
-from bibliopixel.drivers.PiWS281X import *
+from bibliopixel.drivers.PiWS281X import PiWS281X
 import sys
 
 #create biblio pixel driver and led
