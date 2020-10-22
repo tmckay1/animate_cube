@@ -8,7 +8,7 @@ class Laser(Cube):
         self._color = color
         self._speed = speed
 
-    def step(self, amt=1):
+    def step(self, amt=8):
         self.layout.all_off()
         for x in range(self.x):
             for y in range(self.y):
