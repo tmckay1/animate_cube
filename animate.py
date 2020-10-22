@@ -1,5 +1,6 @@
 from shape.snaked_cube import SnakedCube
 from animation.CubeRain import CubeRain
+from animation.CubeBloom import CubeBloom
 from animation.CubeGameOfLife import CubeGameOfLife
 from bibliopixel.drivers.PiWS281X import PiWS281X
 import sys
@@ -30,6 +31,9 @@ layout     = SnakedCube(driver, 8, 8, 8)
 # anim.run()
 
 # game of lifeW
-anim       = CubeGameOfLife(layout)
-anim.run()
+# anim = CubeGameOfLife(layout)
+# anim.run()
 
+# bloom
+anim = CubeBloom(layout)
+anim.run()
