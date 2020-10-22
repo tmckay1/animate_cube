@@ -33,8 +33,8 @@ class Rain(Cube):
             col = self._drops[x][y]
             if len(col) > 0:
               removals = []
-              for dz in range(len(col)):
-                drop = col[self.z - dz - 1]
+              for z in range(len(col)):
+                drop = col[z]
                 if drop < self.z:
                   self._drawDrop(x, y, drop, self.palette(
                     drop * (255 // self.z)))
