@@ -44,8 +44,6 @@ def make_cube_coord_map_positions(coord_map):
     return result
 
 class SnakedCube(Cube):
-    CLONE_ATTRS = Layout.CLONE_ATTRS + ('x', 'y', 'z')
-
     def __init__(self, drivers, x, y, z, coord_map=None,
                  threadedUpdate=False, brightness=255, **kwargs):
         super().__init__(drivers, threadedUpdate, brightness, **kwargs)
