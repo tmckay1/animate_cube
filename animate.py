@@ -2,6 +2,7 @@ from shape.snaked_cube import SnakedCube
 from animation.CubeRain import CubeRain
 from animation.CubeBloom import CubeBloom
 from animation.Firework import Firework
+from animation.Laser import Laser
 from animation.WaveSpiral import WaveSpiral
 from animation.CubeGameOfLife import CubeGameOfLife
 from bibliopixel.drivers.PiWS281X import PiWS281X
@@ -33,7 +34,11 @@ layout     = SnakedCube(driver, 8, 8, 8)
 # anim.run()
 
 # fireworks
-anim = Firework(layout)
+# anim = Firework(layout)
+# anim.run()
+
+# laser
+anim = Laser(layout)
 anim.run()
 
 # game of lifeW
