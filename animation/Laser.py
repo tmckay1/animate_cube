@@ -9,7 +9,7 @@ class Laser(Cube):
         self._speed = speed
 
     def step(self, amt=8):
-        if (self._step % self._speed) == 0
+        if (self._step % self._speed) == 0:
             self.layout.all_off()
             for x in range(self.x):
                 for y in range(self.y):
