@@ -26,7 +26,7 @@ class Rain(Cube):
         for i in range(self._growthRate):
           x = random.randint(0, self.x - 1)
           y = random.randint(0, self.y - 1)
-          self._drops[x][y].append(0)
+          self._drops[x][y].append(self.z)
 
         for x in range(self.x):
           for y in range(self.y):
