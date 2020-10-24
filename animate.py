@@ -42,8 +42,13 @@ layout     = SnakedCube(driver, x, y, z)
 # anim.run()
 
 # fireworks
+# speed = 3 # higher the number, slower it is
+# anim = Firework(layout, speed=speed)
+# anim.run()
+
+# pulse
 speed = 3 # higher the number, slower it is
-anim = Firework(layout, speed=speed)
+anim = CubePulse(layout, speed=speed)
 anim.run()
 
 # laser

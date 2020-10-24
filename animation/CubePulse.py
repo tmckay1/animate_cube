@@ -16,20 +16,18 @@ def genCubeVector(x, y, z, x_mult=1, y_mult=1, z_mult=1):
     cZ = (z - 1) / 2.0
 
     def vect(_x, _y, _z):
-        return int(math.sqrt(math.pow(_x - cX, 2 * x_mult) +
-                             math.pow(_y - cY, 2 * y_mult) +
-                             math.pow(_z - cZ, 2 * z_mult)))
+        return max(_x - cX, _y - cY, _z - cZ)
 
     return [[[vect(_x, _y, _z) for _z in range(z)] for _y in range(y)] for _x in range(x)]
 
 
-class CubeSphere(Cube):
+class CubePulse(Cube):
 
     def __init__(self, layout, speed=1, max_radius=-1, **kwds):
         super().__init__(layout, **kwds)
         self._vector = genCubeVector(self.x, self.y, self.z)
         self._speed = speed
-        self._max_radius = self.z if max_radius < 0 else max_radius
+        self._max_radius = self.z / 2
 
     def pre_run(self):
         self._step = 0
