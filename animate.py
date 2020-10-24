@@ -1,6 +1,7 @@
 from shape.SnakedCube import SnakedCube
 from animation.CubeRain import CubeRain
 from animation.CubeBloom import CubeBloom
+from animation.CubePulse import CubePulse
 from animation.CubeSphere import CubeSphere
 from animation.Firework import Firework
 from animation.Laser import Laser
