@@ -1,42 +1,62 @@
-  
 from bibliopixel.animation.cube import Cube
+import math
 
 
-def spiralOrder(matrix):
-    return matrix and list(matrix.pop(0)) + spiralOrder(list(zip(*matrix))[::-1])
+def genCubeVector(x, y, z, x_mult=1, y_mult=1, z_mult=1):
+    """Generates a map of vector lengths from the center point to each coordinate
+    x - width of matrix to generate
+    y - height of matrix to generate
+    z - depth of matrix to generate
+    x_mult - value to scale x-axis by
+    y_mult - value to scale y-axis by
+    z_mult - value to scale z-axis by
+    """
+    cX = (x - 1) / 2.0
+    cY = (y - 1) / 2.0
+    cZ = (z - 1) / 2.0
+
+    def vect(_x, _y, _z):
+        return int(math.sqrt(math.pow(_x - cX, 2 * x_mult) +
+                             math.pow(_y - cY, 2 * y_mult) +
+                             math.pow(_z - cZ, 2 * z_mult)))
+
+    return [[[vect(_x, _y, _z) for _z in range(z)] for _y in range(y)] for _x in range(x)]
 
 
 class Firework(Cube):
 
-    def __init__(self, layout, offset=1, **kwds):
+    def __init__(self, layout, speed=1, **kwds):
         super().__init__(layout, **kwds)
-        self.offset = offset
-        self.spiral_len = self.x * self.y
-        self.matrix = []
-
-        for x in range(self.x):
-            col = []
-            for y in range(self.y):
-                col.append((x, y))
-            self.matrix.append(col)
-
-        self.spiral = spiralOrder(self.matrix)
+        self._vector = genCubeVector(self.x, self.y, self.z)
+        self._dir = dir
+        self._speed = speed
+        self._start_x = (self._x - 1) / 2
+        self._start_y = (self._y - 1) / 2
 
     def pre_run(self):
         self._step = 0
 
     def step(self, amt=1):
-        self.layout.all_off()
-        s = 255 - self._step
+        if (self._step % self._speed) == 0:
+            self.layout.all_off()
+            new_step = (self._step // self._speed)
 
-        offset_total = 0
-        for z in range(self.z):
-            for i in range(self.spiral_len):
-                x, y = self.spiral[i]
-                index = i * 255 / self.spiral_len + s + offset_total
-                self.layout.set(x, y, z, self.palette(index))
-            offset_total += self.offset
+            # draw a line for the first third of the animation, then the circle for the rest
+            full_cycle_length = (3 * self._z / 2)
+            cycle_step = new_step % cycle_length
+            line_cycle_length = (self._z / 2)
+            draw_circle = cycle_step >= line_cycle_length
 
-        self._step += amt
-        if(self._step >= 255):
-            self._step = 0
+            if draw_circle:
+                # this respects master brightness but is slower
+                radius = (new_step - line_cycle_length) % self._z
+                for z in range(self.z):
+                    for y in range(self.y):
+                        for x in range(self.x):
+                            if self._vector[x][y][z] == radius:
+                                self.layout.set(x, y, z, self.palette((new_step * 2 // 3) % 255))
+            else:
+                self.layout.set(self._start_x, self._start_y, cycle_step, (255,165,0))
+
+        # TODO: Handle overflow
+        self._step += 1

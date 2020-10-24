@@ -36,14 +36,15 @@ layout     = SnakedCube(driver, x, y, z)
 # anim.run()
 
 # sphere
-speed = 3 # higher the number, slower it is
-max_radius = z / 2 # the most the circle will expand to
-anim = CubeSphere(layout, speed=speed, max_radius=max_radius)
-anim.run()
+# speed = 3 # higher the number, slower it is
+# max_radius = z / 2 # the most the circle will expand to
+# anim = CubeSphere(layout, speed=speed, max_radius=max_radius)
+# anim.run()
 
 # fireworks
-# anim = Firework(layout)
-# anim.run()
+speed = 3 # higher the number, slower it is
+anim = Firework(layout, speed=speed)
+anim.run()
 
 # laser
 # speed = 5 # higher the number, slower it is
