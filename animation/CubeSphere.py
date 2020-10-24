@@ -47,7 +47,7 @@ class CubeSphere(Cube):
                 for y in range(self.y):
                     for x in range(self.x):
                         if self._vector[x][y][z] == radius:
-                            self.layout.set(x, y, z, (255,255,255))
+                            self.layout.set(x, y, z, self.palette(new_step % 255))
 
         # TODO: Handle overflow
         self._step += 1
