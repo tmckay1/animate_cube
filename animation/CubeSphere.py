@@ -33,7 +33,7 @@ class CubeSphere(Cube):
     def pre_run(self):
         self._step = 0
 
-    def step(self, amt=32):
+    def step(self, amt=1):
         self.layout.all_off()
         traveling_up = (self._step // self.z) % 2 == 0
         radius = (self._step % self.z) if traveling_up else (self.z - (self._step % self.z))

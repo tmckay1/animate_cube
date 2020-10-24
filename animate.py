@@ -1,6 +1,7 @@
 from shape.SnakedCube import SnakedCube
 from animation.CubeRain import CubeRain
 from animation.CubeBloom import CubeBloom
+from animation.CubeSphere import CubeSphere
 from animation.Firework import Firework
 from animation.Laser import Laser
 from animation.LaserUp import LaserUp
@@ -34,6 +35,10 @@ layout     = SnakedCube(driver, x, y, z)
 # anim       = CubeRain(layout, tail=tail, growthRate=growthRate, speed=speed, color=color, clouds=True)
 # anim.run()
 
+# sphere
+anim = CubeSphere(layout)
+anim.run()
+
 # fireworks
 # anim = Firework(layout)
 # anim.run()
@@ -53,8 +58,8 @@ layout     = SnakedCube(driver, x, y, z)
 # anim.run()
 
 # bloom
-anim = CubeBloom(layout)
-anim.run()
+# anim = CubeBloom(layout)
+# anim.run()
 
 # wave spiral
 # anim = WaveSpiral(layout)
