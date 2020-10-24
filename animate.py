@@ -36,7 +36,8 @@ layout     = SnakedCube(driver, x, y, z)
 # anim.run()
 
 # sphere
-anim = CubeSphere(layout)
+speed = 5 # higher the number, slower it is
+anim = CubeSphere(layout, speed=speed)
 anim.run()
 
 # fireworks

@@ -11,11 +11,11 @@ class Laser(Cube):
     def step(self, amt=1):
         if (self._step % self._speed) == 0:
             self.layout.all_off()
-            iteration = (self._step // self._speed)
-            traveling_up = (iteration // self.z) % 2 == 0
+            new_step = (self._step // self._speed)
+            traveling_up = (new_step // self.z) % 2 == 0
             for x in range(self.x):
                 for y in range(self.y):
-                    self.layout.set(x, y, (iteration % self.z) if traveling_up else (self.z - (iteration % self.z) - 1), self._color)
+                    self.layout.set(x, y, (new_step % self.z) if traveling_up else (self.z - (new_step % self.z) - 1), self._color)
 
         # TODO: Handle overflow
         self._step = self._step + 1
