@@ -25,11 +25,12 @@ def genCubeVector(x, y, z, x_mult=1, y_mult=1, z_mult=1):
 
 class CubeSphere(Cube):
 
-    def __init__(self, layout, speed=1, dir=True, **kwds):
+    def __init__(self, layout, speed=1, dir=True, max_radius=-1, **kwds):
         super().__init__(layout, **kwds)
         self._vector = genCubeVector(self.x, self.y, self.z)
         self._dir = dir
         self._speed = speed
+        self._max_radius = self._z if max_radius < 0 else max_radius
 
     def pre_run(self):
         self._step = 0
@@ -38,8 +39,8 @@ class CubeSphere(Cube):
         if (self._step % self._speed) == 0:
             self.layout.all_off()
             new_step = (self._step // self._speed)
-            traveling_up = (new_step // self.z) % 2 == 0
-            radius = (new_step % self.z) if traveling_up else (self.z - (new_step % self.z) - 1)
+            traveling_up = (new_step // self._max_radius) % 2 == 0
+            radius = (new_step % self._max_radius) if traveling_up else (self._max_radius - (new_step % self._max_radius) - 1)
 
             # this respects master brightness but is slower
             for z in range(self.z):
