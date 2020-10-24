@@ -30,7 +30,7 @@ class CubeSphere(Cube):
         self._vector = genCubeVector(self.x, self.y, self.z)
         self._dir = dir
         self._speed = speed
-        self._max_radius = self._z if max_radius < 0 else max_radius
+        self._max_radius = self.z if max_radius < 0 else max_radius
 
     def pre_run(self):
         self._step = 0

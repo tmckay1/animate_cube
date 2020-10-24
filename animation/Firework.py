@@ -42,14 +42,14 @@ class Firework(Cube):
             new_step = (self._step // self._speed)
 
             # draw a line for the first third of the animation, then the circle for the rest
-            full_cycle_length = (3 * self._z / 2)
+            full_cycle_length = (3 * self.z / 2)
             cycle_step = new_step % cycle_length
-            line_cycle_length = (self._z / 2)
+            line_cycle_length = (self.z / 2)
             draw_circle = cycle_step >= line_cycle_length
 
             if draw_circle:
                 # this respects master brightness but is slower
-                radius = (new_step - line_cycle_length) % self._z
+                radius = (new_step - line_cycle_length) % self.z
                 for z in range(self.z):
                     for y in range(self.y):
                         for x in range(self.x):
