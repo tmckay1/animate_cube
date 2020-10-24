@@ -28,6 +28,8 @@ class CubeBloom(Cube):
     def __init__(self, layout, dir=True, **kwds):
         super().__init__(layout, **kwds)
         self._vector = genCubeVector(self.x, self.y, self.z)
+        print("vector")
+        print(self._vector)
         self._dir = dir
 
     def pre_run(self):

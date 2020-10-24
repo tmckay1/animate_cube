@@ -1,4 +1,4 @@
-from shape.snaked_cube import SnakedCube
+from shape.SnakedCube import SnakedCube
 from animation.CubeRain import CubeRain
 from animation.CubeBloom import CubeBloom
 from animation.Firework import Firework
@@ -19,12 +19,12 @@ driver     = PiWS281X(x*y*z)
 layout     = SnakedCube(driver, x, y, z)
 
 # matrix movie animation
-tail       = 4 # tail of rain animation
-growthRate = 1 # how many rain drops
-speed      = 2 # higher the number, slower it is
-color      = (0,255,0)
-anim       = CubeRain(layout, tail=tail, growthRate=growthRate, speed=speed, color=color)
-anim.run()
+# tail       = 4 # tail of rain animation
+# growthRate = 1 # how many rain drops
+# speed      = 2 # higher the number, slower it is
+# color      = (0,255,0)
+# anim       = CubeRain(layout, tail=tail, growthRate=growthRate, speed=speed, color=color)
+# anim.run()
 
 # rain drops
 # tail       = 1 # tail of rain animation
@@ -53,8 +53,8 @@ anim.run()
 # anim.run()
 
 # bloom
-# anim = CubeBloom(layout)
-# anim.run()
+anim = CubeBloom(layout)
+anim.run()
 
 # wave spiral
 # anim = WaveSpiral(layout)
