@@ -30,8 +30,8 @@ class Firework(Cube):
         self._vector = genCubeVector(self.x, self.y, self.z)
         self._dir = dir
         self._speed = speed
-        self._start_x = (self._x - 1) / 2
-        self._start_y = (self._y - 1) / 2
+        self._start_x = (self.x - 1) / 2
+        self._start_y = (self.y - 1) / 2
 
     def pre_run(self):
         self._step = 0
