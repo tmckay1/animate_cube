@@ -16,4 +16,6 @@ class Laser(Cube):
             for x in range(self.x):
                 for y in range(self.y):
                     self.layout.set(x, y, (iteration % self.z) if traveling_up else (self.z - (iteration % self.z) - 1), self._color)
+
+        # TODO: Handle overflow
         self._step = self._step + 1

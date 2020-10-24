@@ -23,7 +23,7 @@ def genCubeVector(x, y, z, x_mult=1, y_mult=1, z_mult=1):
     return [[[vect(_x, _y, _z) for _z in range(z)] for _y in range(y)] for _x in range(x)]
 
 
-class CubeBloom(Cube):
+class CubeSphere(Cube):
 
     def __init__(self, layout, dir=True, **kwds):
         super().__init__(layout, **kwds)
@@ -34,18 +34,16 @@ class CubeBloom(Cube):
         self._step = 0
 
     def step(self, amt=32):
-        if self._dir:
-            s = 255 - self._step
-        else:
-            s = self._step
+        self.layout.all_off()
+        traveling_up = (self._step // self.z) % 2 == 0
+        radius = (self._step % self.z) if traveling_up else (self.z - (self._step % self.z))
 
         # this respects master brightness but is slower
         for z in range(self.z):
             for y in range(self.y):
                 for x in range(self.x):
-                    index = self._vector[x][y][z] * 255 / self.y + s
-                    self.layout.set(x, y, z, self.palette(index))
+                    if self._vector[x][y][z] == radius:
+                        self.layout.set(x, y, z, (255,255,255))
 
-        self._step += amt
-        if(self._step >= 255):
-            self._step = 0
+        # TODO: Handle overflow
+        self._step += 1
