@@ -16,7 +16,7 @@ def genCubeVector(x, y, z, x_mult=1, y_mult=1, z_mult=1):
     cZ = (z - 1) / 2.0
 
     def vect(_x, _y, _z):
-        return max(_x - cX, _y - cY, _z - cZ)
+        return int(max(abs(_x - cX), abs(_y - cY), abs(_z - cZ)))
 
     return [[[vect(_x, _y, _z) for _z in range(z)] for _y in range(y)] for _x in range(x)]
 
