@@ -1,12 +1,7 @@
-from bibliopixel.util import log
-from bibliopixel.colors import conversions
-from bibliopixel.layout import font
 from bibliopixel.layout.cube import Cube
 from bibliopixel.layout.geometry.rotation import rotate_and_flip
 from bibliopixel.layout.geometry.cube import make_cube_coord_map_positions
 from bibliopixel.layout.geometry.matrix import make_matrix_coord_map
-import math, threading, time
-
 
 def make_cube_coord_map(dx, dy, dz, xy_serpentine=True, offset=0,
                         xy_rotation=0, z_rotation=0, z_flip=False):
