@@ -33,18 +33,16 @@ class CubePulse(Cube):
         self._step = 0
 
     def step(self, amt=1):
-        if (self._step % self._speed) == 0:
-            self.layout.all_off()
-            new_step = (self._step // self._speed)
-            traveling_up = (new_step // self._max_radius) % 2 == 0
-            radius = (new_step % self._max_radius) if traveling_up else (self._max_radius - (new_step % self._max_radius) - 1)
+        self.layout.all_off()
+        traveling_up = (new_step // self._max_radius) % 2 == 0
+        radius = (new_step % self._max_radius) if traveling_up else (self._max_radius - (new_step % self._max_radius) - 1)
 
-            # this respects master brightness but is slower
-            for z in range(self.z):
-                for y in range(self.y):
-                    for x in range(self.x):
-                        if self._vector[x][y][z] == radius:
-                            self.layout.set(x, y, z, self.palette(new_step % 255))
+        # this respects master brightness but is slower
+        for z in range(self.z):
+            for y in range(self.y):
+                for x in range(self.x):
+                    if self._vector[x][y][z] == radius:
+                        self.layout.set(x, y, z, self.palette(new_step % 255))
 
         # TODO: Handle overflow
-        self._step += 1
+        self._step += amt
