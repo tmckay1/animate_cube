@@ -50,8 +50,8 @@ layout     = SnakedCube(driver, x, y, z)
 # pulse
 # speed = 3 # higher the number, slower it is
 fps = 24
-anim = CubePulse(layout, fps=fps)
-anim.run()
+anim = CubePulse(layout)
+anim.run(fps=fps)
 
 # laser
 # speed = 5 # higher the number, slower it is

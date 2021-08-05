@@ -34,6 +34,7 @@ class CubePulse(Cube):
 
     def step(self, amt=1):
         self.layout.all_off()
+        new_step = self._step
         traveling_up = (new_step // self._max_radius) % 2 == 0
         radius = (new_step % self._max_radius) if traveling_up else (self._max_radius - (new_step % self._max_radius) - 1)
 
