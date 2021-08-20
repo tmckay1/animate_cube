@@ -11,5 +11,5 @@ class LaserUp(Cube):
         self.layout.all_off()
         for x in range(self.x):
             for y in range(self.y):
-                self.layout.set(x, y, (self._step // self._speed) % self.z, (255,0,0))
+                self.layout.set(x, y, self._step % self.z, (255,0,0))
         self._step += amt
