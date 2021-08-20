@@ -23,10 +23,9 @@ def genCubeVector(x, y, z, x_mult=1, y_mult=1, z_mult=1):
 
 class CubePulse(Cube):
 
-    def __init__(self, layout, speed=1, max_radius=-1, **kwds):
+    def __init__(self, layout, max_radius=-1, **kwds):
         super().__init__(layout, **kwds)
         self._vector = genCubeVector(self.x, self.y, self.z)
-        self._speed = speed
         self._max_radius = self.z / 2
 
     def pre_run(self):

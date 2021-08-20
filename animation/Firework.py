@@ -25,11 +25,10 @@ def genCubeVector(x, y, z, x_mult=1, y_mult=1, z_mult=1):
 
 class Firework(Cube):
 
-    def __init__(self, layout, speed=1, **kwds):
+    def __init__(self, layout, **kwds):
         super().__init__(layout, **kwds)
         self._vector = genCubeVector(self.x, self.y, self.z)
         self._dir = dir
-        self._speed = speed
         self._start_x = (self.x - 1) // 2
         self._start_y = (self.y - 1) // 2
 
@@ -37,26 +36,25 @@ class Firework(Cube):
         self._step = 0
 
     def step(self, amt=1):
-        if (self._step % self._speed) == 0:
-            self.layout.all_off()
-            new_step = (self._step // self._speed)
+        self.layout.all_off()
+        new_step = self._step
 
-            # draw a line for the first third of the animation, then the circle for the rest
-            full_cycle_length = (3 * self.z // 2) # 12
-            cycle_step = new_step % full_cycle_length
-            line_cycle_length = (self.z // 2) # 4
-            draw_circle = cycle_step >= line_cycle_length
+        # draw a line for the first third of the animation, then the circle for the rest
+        full_cycle_length = (3 * self.z // 2) # 12
+        cycle_step = new_step % full_cycle_length
+        line_cycle_length = (self.z // 2) # 4
+        draw_circle = cycle_step >= line_cycle_length
 
-            if draw_circle:
-                # this respects master brightness but is slower
-                radius = (cycle_step - line_cycle_length) % self.z
-                for z in range(self.z):
-                    for y in range(self.y):
-                        for x in range(self.x):
-                            if self._vector[x][y][z] == radius:
-                                self.layout.set(x, y, z, self.palette((new_step * 2 // 3) % 255))
-            else:
-                self.layout.set(self._start_x, self._start_y, cycle_step, (255,165,0))
+        if draw_circle:
+            # this respects master brightness but is slower
+            radius = (cycle_step - line_cycle_length) % self.z
+            for z in range(self.z):
+                for y in range(self.y):
+                    for x in range(self.x):
+                        if self._vector[x][y][z] == radius:
+                            self.layout.set(x, y, z, self.palette((new_step * 2 // 3) % 255))
+        else:
+            self.layout.set(self._start_x, self._start_y, cycle_step, (255,165,0))
 
         # TODO: Handle overflow
-        self._step += 1
+        self._step += amt

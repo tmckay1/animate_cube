@@ -25,28 +25,26 @@ def genCubeVector(x, y, z, x_mult=1, y_mult=1, z_mult=1):
 
 class CubeSphere(Cube):
 
-    def __init__(self, layout, speed=1, max_radius=-1, **kwds):
+    def __init__(self, layout, max_radius=-1, **kwds):
         super().__init__(layout, **kwds)
         self._vector = genCubeVector(self.x, self.y, self.z)
-        self._speed = speed
         self._max_radius = self.z if max_radius < 0 else max_radius
 
     def pre_run(self):
         self._step = 0
 
     def step(self, amt=1):
-        if (self._step % self._speed) == 0:
-            self.layout.all_off()
-            new_step = (self._step // self._speed)
-            traveling_up = (new_step // self._max_radius) % 2 == 0
-            radius = (new_step % self._max_radius) if traveling_up else (self._max_radius - (new_step % self._max_radius) - 1)
+        self.layout.all_off()
+        new_step = self._step
+        traveling_up = (new_step // self._max_radius) % 2 == 0
+        radius = (new_step % self._max_radius) if traveling_up else (self._max_radius - (new_step % self._max_radius) - 1)
 
-            # this respects master brightness but is slower
-            for z in range(self.z):
-                for y in range(self.y):
-                    for x in range(self.x):
-                        if self._vector[x][y][z] == radius:
-                            self.layout.set(x, y, z, self.palette(new_step % 255))
+        # this respects master brightness but is slower
+        for z in range(self.z):
+            for y in range(self.y):
+                for x in range(self.x):
+                    if self._vector[x][y][z] == radius:
+                        self.layout.set(x, y, z, self.palette(new_step % 255))
 
         # TODO: Handle overflow
-        self._step += 1
+        self._step += amt

@@ -23,54 +23,56 @@ layout     = SnakedCube(driver, x, y, z)
 # matrix movie animation
 # tail       = 4 # tail of rain animation
 # growthRate = 1 # how many rain drops
-# speed      = 2 # higher the number, slower it is
+# fps = 24
 # color      = (0,255,0)
 # anim       = CubeRain(layout, tail=tail, growthRate=growthRate, speed=speed, color=color)
-# anim.run()
+# anim.run(fps=fps)
 
 # rain drops
 # tail       = 1 # tail of rain animation
 # growthRate = 1 # how many rain drops
-# speed      = 2 # higher the number, slower it is
+# fps = 24
 # color      = (0,255,255)
 # anim       = CubeRain(layout, tail=tail, growthRate=growthRate, speed=speed, color=color, clouds=True)
-# anim.run()
+# anim.run(fps=fps)
 
 # sphere
-# speed = 3 # higher the number, slower it is
+# fps = 24
 # max_radius = z / 2 # the most the circle will expand to
 # anim = CubeSphere(layout, speed=speed, max_radius=max_radius)
-# anim.run()
+# anim.run(fps=fps)
 
 # fireworks
-# speed = 3 # higher the number, slower it is
+# fps = 24
 # anim = Firework(layout, speed=speed)
-# anim.run()
+# anim.run(fps=fps)
 
 # pulse
-# speed = 3 # higher the number, slower it is
 fps = 24
 anim = CubePulse(layout)
 anim.run(fps=fps)
 
 # laser
-# speed = 5 # higher the number, slower it is
+# fps = 24
 # anim  = Laser(layout, speed=speed)
-# anim.run()
+# anim.run(fps=fps)
 
 # laser up
-# speed = 2 # higher the number, slower it is
+# fps = 24
 # anim  = LaserUp(layout, speed=speed)
-# anim.run()
+# anim.run(fps=fps)
 
-# game of lifeW
+# game of life
+# fps = 24
 # anim = CubeGameOfLife(layout)
-# anim.run()
+# anim.run(fps=fps)
 
 # bloom
+# fps = 24
 # anim = CubeBloom(layout)
-# anim.run()
+# anim.run(fps=fps)
 
 # wave spiral
+# fps = 24
 # anim = WaveSpiral(layout)
-# anim.run()
+# anim.run(fps=fps)
