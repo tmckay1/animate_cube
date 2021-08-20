@@ -25,7 +25,7 @@ layout     = SnakedCube(driver, x, y, z)
 # growthRate = 1 # how many rain drops
 # fps = 24
 # color      = (0,255,0)
-# anim       = CubeRain(layout, tail=tail, growthRate=growthRate, speed=speed, color=color)
+# anim       = CubeRain(layout, tail=tail, growthRate=growthRate, color=color)
 # anim.run(fps=fps)
 
 # rain drops
@@ -33,18 +33,18 @@ layout     = SnakedCube(driver, x, y, z)
 # growthRate = 1 # how many rain drops
 # fps = 24
 # color      = (0,255,255)
-# anim       = CubeRain(layout, tail=tail, growthRate=growthRate, speed=speed, color=color, clouds=True)
+# anim       = CubeRain(layout, tail=tail, growthRate=growthRate, color=color, clouds=True)
 # anim.run(fps=fps)
 
 # sphere
 # fps = 24
 # max_radius = z / 2 # the most the circle will expand to
-# anim = CubeSphere(layout, speed=speed, max_radius=max_radius)
+# anim = CubeSphere(layout, max_radius=max_radius)
 # anim.run(fps=fps)
 
 # fireworks
 # fps = 24
-# anim = Firework(layout, speed=speed)
+# anim = Firework(layout)
 # anim.run(fps=fps)
 
 # pulse
@@ -54,12 +54,12 @@ anim.run(fps=fps)
 
 # laser
 # fps = 24
-# anim  = Laser(layout, speed=speed)
+# anim  = Laser(layout)
 # anim.run(fps=fps)
 
 # laser up
 # fps = 24
-# anim  = LaserUp(layout, speed=speed)
+# anim  = LaserUp(layout)
 # anim.run(fps=fps)
 
 # game of life
